@@ -39,7 +39,9 @@ function App() {
   const {user,setUser,setIsAuthenticated,isAuthenticated} = useContext(Context)
   useEffect(() => {
     axios
-      .get("https://todobackend-aw6o.onrender.com/api/v1/users/me")
+      .get("https://todobackend-aw6o.onrender.com/api/v1/users/me", {
+          withCredentials: true,
+        })
       .then((res) => {
         setIsAuthenticated(true)
         setUser(res.data.user)
