@@ -21,7 +21,9 @@ const Login = () => {
       console.log(server);
       const res = await axios.post(
         `https://todobackend-aw6o.onrender.com/api/v1/users/login`,
-        { email, password }
+        { email, password } ,  {
+          withCredentials: true,
+        }
       );
       console.log(res, "res");
       toast.success(res.data.message);
