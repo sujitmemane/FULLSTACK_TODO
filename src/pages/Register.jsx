@@ -22,7 +22,9 @@ const Register = () => {
       console.log(server);
       const res = await axios.post(
         `https://todobackend-aw6o.onrender.com/api/v1/users/register`,
-        { name, email, password }
+        { name, email, password },  {
+          withCredentials: true,
+        }
       );
       console.log(res, "res");
       toast.success(res.data.message);
